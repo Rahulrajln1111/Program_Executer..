@@ -1,0 +1,14 @@
+#!/bin/bash
+p=$(ls -lt | head -2 | tail -1 | awk '{print $NF}')
+if [[ $1 == $'\0'  ]]
+   then
+   open $p
+   else
+if [ -e  $1 ]
+   then
+   open $1
+   else
+   touch $1 ; open $1
+fi
+fi
+

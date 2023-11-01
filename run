@@ -1,0 +1,43 @@
+#!/bin/bash
+a=$(pwd)
+rm a.out 2> /dev/null
+g++ $1 &> /dev/null
+latest_file=$(ls -lt | head -2 | tail -1 | awk '{print $NF}')
+latest_file_c=$(ls -lt | grep \.c$ | awk '{print $NF}'| head -1)
+latest_file_cpp=$(ls -lt | grep \.cpp$ | awk '{print $NF}'| head -1)
+input_var="$1"
+if [ -z "$input_var" ]
+   then 
+     latest_file_ext=$( ls -lt | head -2 | tail -1 | awk '{print $NF}'| awk -F. '{print $NF}' ) 
+       if [ "$latest_file_ext" = "c" ]
+          then
+          g++ $latest_file_c
+          ./a.out
+          rm a.out &> /dev/null
+          else
+             if [ $latest_file_ext = "cpp" ]
+                then
+                g++ $latest_file_cpp
+                ./a.out
+                rm a.out &> /dev/null
+             fi
+       fi
+       if [ $latest_file_ext = "sh" ]
+          then
+          /bin/bash "$a/$latest_file"
+       fi
+   else
+file_ext=$(echo "$1"|awk -F. '{print $NF}')
+if [ "$file_ext" = "c" ] || [ "$file_ext" = "cpp" ] 
+   then
+      ./a.out
+   else
+   /bin/bash "$a/$1"
+fi
+
+rm a.out &> /dev/null
+fi
+rm a.out &> /dev/null
+   
+   
+     
