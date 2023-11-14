@@ -3,7 +3,12 @@ It help to compile and execute your programming language like C,C++,Bash script.
 
 
 
-There is a script file named install.sh ,after executing it as root user(sudo ./install.sh) the 'op' and 'Run' program will be 
+There is a script file named install.sh ,after executing it as root user
+
+sudo ./install.sh
+
+the 'op' and 'Run' program will be 
+
 automatically installed..
 
 
