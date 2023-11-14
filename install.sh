@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo su
 if [ $UID == '0' ]
   then
   if [ -e $'run' ] || [ -e $'op' ]
