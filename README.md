@@ -16,7 +16,9 @@ automatically installed..
 1.'op' command work as { op [new/old_file_name]/[path_of_file] }
 
   *note:-(a) it creats a new empty file  and open it into your default editor.
+  
          (b) if file_name is not mentioned then the last modified/latest file will be opened.
+         
          (c) if file_name already exists then that file will be opened in your default editor.
 
 
