@@ -3,9 +3,10 @@ It help to compile and execute your programming language like C,C++,Bash script.
 
 
 
-There is a script file named install.sh ,after executing it as root user
+There is a script file named install.sh ;grant execute permission then execute it as root user
 
-
+chmod +x install.sh
+ 
 sudo ./install.sh
 
 
