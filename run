@@ -9,22 +9,13 @@ input_var="$1"
 if [ -z "$input_var" ]
    then 
      latest_file_ext=$( ls -lt | head -2 | tail -1 | awk '{print $NF}'| awk -F. '{print $NF}' ) 
-       if [ "$latest_file_ext" = "c" ]
+       if [ "$latest_file_ext" = "c" ] || [ $latest_file_ext = "cpp" ]
           then
-          g++ $latest_file_c
+          g++ $latest_file
           ./a.out
           rm a.out &> /dev/null
           else
-             if [ $latest_file_ext = "cpp" ]
-                then
-                g++ $latest_file_cpp
-                ./a.out
-                rm a.out &> /dev/null
-             fi
-       fi
-       if [ $latest_file_ext = "sh" ]
-          then
-          /bin/bash "$a/$latest_file"
+             /bin/bash "$a/$latest_file"
        fi
    else
 file_ext=$(echo "$1"|awk -F. '{print $NF}')
