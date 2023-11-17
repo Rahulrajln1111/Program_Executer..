@@ -3,7 +3,8 @@ if [ $UID == '0' ]
   then
   if [ -e $'run' ] || [ -e $'op' ]
     then
-    mv run /bin &>/dev/null
+    chmod +x run op &> /dev/null
+    cp run /bin &>/dev/null
     if [ $? == '0' ]
      then
      echo "Run script installed."
